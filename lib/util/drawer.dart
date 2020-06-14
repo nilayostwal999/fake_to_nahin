@@ -15,10 +15,10 @@ class _Drawer_buttonState extends State<Drawer_button> {
         padding: EdgeInsets.zero,
         children:[
           DrawerHeader(child:Text('Fake To Nahin',style:TextStyle(fontWeight: FontWeight.bold,fontSize:24,color: Colors.white)),decoration: BoxDecoration(color: Colors.green),),
-          ListTile(title: Text('Home',style:TextStyle(color: Colors.green,fontSize: 20)),hoverColor: Colors.green),
-          ListTile(title: Text('Profile',style:TextStyle(color: Colors.green,fontSize: 20)),hoverColor: Colors.green,),
-          ListTile(title: Text('Settings',style:TextStyle(color: Colors.green,fontSize: 20)),hoverColor: Colors.green,),
-          ListTile(title: Text('Exit',style:TextStyle(color: Colors.green,fontSize: 20)),hoverColor: Colors.green,)
+          ListTile(title: Text('Home',style:TextStyle(color: Colors.green,fontSize: 20))),
+          ListTile(title: Text('Profile',style:TextStyle(color: Colors.green,fontSize: 20))),
+          ListTile(title: Text('Settings',style:TextStyle(color: Colors.green,fontSize: 20))),
+          ListTile(title: Text('Exit',style:TextStyle(color: Colors.green,fontSize: 20)))
         ]
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'util/drawer.dart' as drew;
 import 'screen/homepage.dart' as homepage;
-import 'screen/newsview.dart' as newsview;
+// import 'screen/newsview.dart' as newsview;
 
 void main() {
   runApp(MyApp());
@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Fake To Nahin',
       theme: ThemeData(
         primarySwatch: Colors.green,
@@ -40,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return new Scaffold(
       drawer: new drew.Drawer_button(),
       appBar: new AppBar(
-        centerTitle: true,
         title: new Expanded(flex:1,child: Row(children:[Text('Fake To Nahin',style:TextStyle(fontWeight:FontWeight.bold,fontSize: 24),textAlign: TextAlign.center,)])),
         actions: [
           RaisedButton(onPressed: (){},
@@ -62,10 +62,15 @@ class stat extends StatefulWidget {
 class _statState extends State<stat>{
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return  Column(
       verticalDirection: VerticalDirection.down,
       children:[
-        newsview.news_view()
+        // newsview.news_view(),,
+        homepage.homee(),
+        homepage.homee(),
+        homepage.homee(),
+        homepage.homee(),
+        homepage.homee(),
       ]
     );
   }
