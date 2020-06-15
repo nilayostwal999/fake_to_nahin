@@ -134,7 +134,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 60,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, 'Home');
+                    Navigator.pushNamed(context, 'SignIn');
                   },
                   color: Color(0xFF00a79B),
                   child: Text(
