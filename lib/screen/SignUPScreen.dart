@@ -30,7 +30,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ],
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
@@ -45,7 +44,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ],
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
@@ -55,12 +53,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Container(
                         margin: EdgeInsets.only(right: 20, left: 10),
                         child: TextField(
-                          decoration: InputDecoration(hintText: 'Mobile Number'),
+                          decoration:
+                              InputDecoration(hintText: 'Mobile Number'),
                         )))
               ],
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
@@ -75,7 +73,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ],
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
@@ -90,8 +87,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ],
             ),
           ),
-
-
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
@@ -101,54 +96,58 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Container(
                         margin: EdgeInsets.only(right: 20, left: 10),
                         child: TextField(
-                          decoration: InputDecoration(hintText: 'Confirm Password'),
+                          decoration:
+                              InputDecoration(hintText: 'Confirm Password'),
                         )))
               ],
             ),
           ),
-
-
-         SizedBox(height: 40,),
-         Padding(
-           padding: const EdgeInsets.all(8.0),
-           child: Row(
-             children: <Widget>[
-               Radio(value: null, groupValue: null, onChanged: null),
-               RichText(text: TextSpan(
-                 text: 'I have accepted the',
-                 style: TextStyle(color: Colors.black),
-                 children: [
-                   TextSpan(text: 'Terms & Condition',style: TextStyle(color: Colors.teal,fontWeight: FontWeight.bold))
-                 ]
-               ))
-             ],
-           ),
-         ),
-         SizedBox(
+          SizedBox(
+            height: 40,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: <Widget>[
+                Radio(value: null, groupValue: null, onChanged: null),
+                RichText(
+                    text: TextSpan(
+                        text: 'I have accepted the',
+                        style: TextStyle(color: Colors.black),
+                        children: [
+                      TextSpan(
+                          text: 'Terms & Condition',
+                          style: TextStyle(
+                              color: Colors.teal, fontWeight: FontWeight.bold))
+                    ]))
+              ],
+            ),
+          ),
+          SizedBox(
             height: 10,
           ),
           Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Container(
-                  height: 60,
-                  child: RaisedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'Home');
-                    },
-                    color: Color(0xFF00a79B),
-                    child: Text(
-          'SIGN UP',
-          style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20),
-                    ),
+            padding: const EdgeInsets.all(20.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: Container(
+                height: 60,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'Home');
+                  },
+                  color: Color(0xFF00a79B),
+                  child: Text(
+                    'SIGN UP',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
                   ),
                 ),
               ),
             ),
+          ),
         ],
       ),
     );
@@ -164,9 +163,9 @@ class BackButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
+      // decoration: BoxDecoration(
+      //     image: DecorationImage(
+      //         fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
       child: Positioned(
           child: Stack(
         children: <Widget>[
@@ -189,7 +188,6 @@ class BackButtonWidget extends StatelessWidget {
                   )
                 ],
               )),
-
           Positioned(
             bottom: 20,
             child: Padding(

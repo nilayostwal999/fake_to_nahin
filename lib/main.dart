@@ -1,3 +1,6 @@
+import 'package:fake_to_nahin/screen/HomeScreen.dart';
+import 'package:fake_to_nahin/screen/SignInScreen.dart';
+import 'package:fake_to_nahin/screen/SignUPScreen.dart';
 import 'package:flutter/material.dart';
 import 'util/drawer.dart' as drew;
 import 'screen/homepage.dart' as homepage;
@@ -21,7 +24,12 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Fake To Nahin'),
+      initialRoute: 'SignIn',
+      routes: {
+        'SignIn': (context) => SignInScreen(),
+        'SignUp': (context) => SignUpScreen(),
+        'Home': (context) => HomeScreen(),
+      },
     );
   }
 }
@@ -35,23 +43,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       drawer: new drew.Drawer_button(),
       appBar: new AppBar(
-        title: new Expanded(flex:1,child: Row(children:[Text('Fake To Nahin',style:TextStyle(fontWeight:FontWeight.bold,fontSize: 24),textAlign: TextAlign.center,)])),
+        title: new Expanded(
+            flex: 1,
+            child: Row(children: [
+              Text(
+                'Fake To Nahin',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                textAlign: TextAlign.center,
+              )
+            ])),
         actions: [
-          RaisedButton(onPressed: (){},
-            child: Row(children:[Icon(Icons.add),Text('New Post')]),
+          RaisedButton(
+            onPressed: () {},
+            child: Row(children: [Icon(Icons.add), Text('New Post')]),
             textColor: Colors.white,
             color: Colors.green,
             splashColor: Colors.white,
           )
         ],
       ),
-      body: stat(),      ); // This trailing comma makes auto-formatting nicer for build methods.
+      body: stat(),
+    ); // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
 
@@ -59,19 +76,17 @@ class stat extends StatefulWidget {
   @override
   _statState createState() => _statState();
 }
-class _statState extends State<stat>{
+
+class _statState extends State<stat> {
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      verticalDirection: VerticalDirection.down,
-      children:[
-        // newsview.news_view(),,
-        homepage.homee(),
-        homepage.homee(),
-        homepage.homee(),
-        homepage.homee(),
-        homepage.homee(),
-      ]
-    );
+    return Column(verticalDirection: VerticalDirection.down, children: [
+      // newsview.news_view(),,
+      homepage.homee(),
+      homepage.homee(),
+      homepage.homee(),
+      homepage.homee(),
+      homepage.homee(),
+    ]);
   }
 }
