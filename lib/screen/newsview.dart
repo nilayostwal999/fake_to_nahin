@@ -49,21 +49,21 @@ class _news_viewState extends State<news_view> {
                       RaisedButton(onPressed: (){},child:Text('Post a Link',style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),))],
                     ),
                     FractionallySizedBox(
-                        widthFactor:0.97,
-                        child: Row(
-                          children:[
-                            Row(
-                              children: [
-                                Column(children: [
-                                  Image(image: Image.asset(app.png))
-                                ],),
-                                Column(),
-                              ],
-                            ),
-                            Row(children: [Text('Link Provided By User')],)
-                          ]
-                        ),
-                      )
+                      widthFactor:0.97,
+                      child: Row(
+                        children:[
+                          Row(
+                            children: [
+                              Column(children: [
+                                Image(image: AssetImage('asset/img/app.png'))
+                              ],),
+                              Column(),
+                            ],
+                          ),
+                          Row(children: [Text('Link Provided By User')],)
+                        ]
+                      ),
+                    )
                   ]
                 ),
               )
