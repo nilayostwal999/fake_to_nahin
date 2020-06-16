@@ -9,7 +9,7 @@ class _PostScreenState extends State<PostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:Text('Fake To Nahin')),
+      appBar: AppBar(title:Text('Fake To Nahin',style:TextStyle(fontSize:25,fontWeight:FontWeight.bold))),
       body:Column(
         children: [
           SizedBox(height:10),

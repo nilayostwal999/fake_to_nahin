@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Drawer_button extends StatefulWidget {
+class DrawerButton extends StatefulWidget {
   @override
-  _Drawer_buttonState createState() => _Drawer_buttonState();
+  _DrawerButtonState createState() => _DrawerButtonState();
   
 }
 
-class _Drawer_buttonState extends State<Drawer_button> {
+class _DrawerButtonState extends State<DrawerButton> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -15,8 +15,8 @@ class _Drawer_buttonState extends State<Drawer_button> {
         padding: EdgeInsets.zero,
         children:[
           DrawerHeader(child:Text('Fake To Nahin',style:TextStyle(fontWeight: FontWeight.bold,fontSize:24,color: Colors.white)),decoration: BoxDecoration(color: Colors.green),),
-          ListTile(title: Text('Home',style:TextStyle(color: Colors.green,fontSize: 20))),
-          ListTile(title: Text('Profile',style:TextStyle(color: Colors.green,fontSize: 20))),
+          ListTile(title: Text('Home',style:TextStyle(color: Colors.green,fontSize: 20)),onTap: (){Navigator.pushNamedAndRemoveUntil(context,'Home',ModalRoute.withName('/'));},),
+          ListTile(title: Text('Profile',style:TextStyle(color: Colors.green,fontSize: 20)),onTap: (){Navigator.pushNamed(context,'Profile');},),
           ListTile(title: Text('Settings',style:TextStyle(color: Colors.green,fontSize: 20))),
           ListTile(title: Text('Exit',style:TextStyle(color: Colors.green,fontSize: 20)))
         ]
