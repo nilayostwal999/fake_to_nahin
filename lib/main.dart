@@ -1,7 +1,7 @@
-import 'package:fake_to_nahin/screen/HomeScreen.dart';
-import 'package:fake_to_nahin/screen/SignInScreen.dart';
-import 'package:fake_to_nahin/screen/SignUPScreen.dart';
 import 'package:flutter/material.dart';
+import 'screens/HomeScreen.dart';
+import 'screens/SignInScreen.dart';
+import 'screens/SignUpScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
         // 'Profile': (context) => ProfileScreen(),
         // 'EditProfile': (context) => EditProfileScreen(),
         // 'Post' : (context) => PostScreen(),
-        
       },
     );
   }
