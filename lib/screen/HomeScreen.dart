@@ -13,7 +13,20 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       drawer: Drawer(child: drew.Drawer_button(),),
       appBar: AppBar(
-        title: Text('Fake To Nahin'),
+        title: Text('Fake To Nahin',style: TextStyle(fontSize:25,fontWeight:FontWeight.bold),),
+        actions: [
+          RaisedButton(
+            splashColor: Colors.green[300],
+            color: Colors.green,
+            onPressed:(){},
+            child: Row(
+              children:[
+                Icon(Icons.add_circle_outline,color: Colors.white,),
+                Text('New Post',style: TextStyle(color:Colors.white),)
+              ]
+            ),
+          )
+        ],
       ),
       body: SizedBox(
         height: 120,
@@ -40,12 +53,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Row(children: [
-                    Text(
-                      "heading",
+                    RichText(
+                      text:TextSpan(text:"heading",
                       style: TextStyle(
+                        color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 24.0,
                           decoration: TextDecoration.underline),
+                      )
                     )
                   ]),
                   Row(
