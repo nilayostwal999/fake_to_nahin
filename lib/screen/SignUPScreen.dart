@@ -118,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextSpan(
                           text: 'Terms & Condition',
                           style: TextStyle(
-                              color: Colors.teal, fontWeight: FontWeight.bold))
+                              color: Colors.green, fontWeight: FontWeight.bold))
                     ]))
               ],
             ),
@@ -136,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     Navigator.pushNamed(context, 'SignIn');
                   },
-                  color: Color(0xFF00a79B),
+                  color: Colors.green,
                   child: Text(
                     'SIGN UP',
                     style: TextStyle(
