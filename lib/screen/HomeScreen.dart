@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../util/drawer.dart' as drew;
+import 'newsview.dart' as NewsView;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,6 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(child: drew.Drawer_button(),),
       appBar: AppBar(
         title: Text('Fake To Nahin'),
       ),
@@ -16,12 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 120,
         child: RaisedButton(
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //       builder: (context) =>
-            //           news_view()), // the builder of MaterialPageRoute will call the TodoDetail class passing the todo that was passed.
-            // );
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) => NewsView.news_view()), // the builder of MaterialPageRoute will call the TodoDetail class passing the todo that was passed.
+            );
           },
           child: Row(
             children: [
@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
           highlightColor: Colors.grey,
           elevation: 10.0,
         )
-      )
+      ),
     );
   }
 }
