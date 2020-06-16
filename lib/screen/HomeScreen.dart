@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../util/drawer.dart' as drew;
-import 'newsview.dart' as NewsView;
+import 'NewsView.dart' as NewsView;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -19,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 120,
         child: RaisedButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) => NewsView.news_view()), // the builder of MaterialPageRoute will call the TodoDetail class passing the todo that was passed.
+            Navigator.push(context, MaterialPageRoute(fullscreenDialog: true,maintainState: true,
+              builder: (context) => NewsView.news_view()),  // builder of MaterialPageRoute will call the TodoDetail class passing the todo that was passed.
             );
           },
           child: Row(
