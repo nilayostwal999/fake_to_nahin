@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/HomeScreen.dart';
 import 'screens/SignInScreen.dart';
 import 'screens/SignUpScreen.dart';
+import 'screens/PostScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         // 'CreatePost':(context) => CreatePostScreen(),
         // 'Profile': (context) => ProfileScreen(),
         // 'EditProfile': (context) => EditProfileScreen(),
-        // 'Post' : (context) => PostScreen(),
+         'Post' : (context) => PostScreen(),
       },
     );
   }
