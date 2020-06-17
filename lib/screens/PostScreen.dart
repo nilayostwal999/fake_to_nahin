@@ -55,7 +55,7 @@ class _PostScreenState extends State<PostScreen> {
                           Row(
                             children: [
                               Column(children: [
-                                Image(image: AssetImage('asset/img/app.png'))
+                                // Image(image: AssetImage('asset/img/app.png'))
                               ],),
                               Column(),
                             ],
