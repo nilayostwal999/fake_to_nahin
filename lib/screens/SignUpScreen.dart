@@ -134,7 +134,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 60,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, 'SignIn');
+                    Navigator.pushNamedAndRemoveUntil(context, 'SignIn',ModalRoute.withName('/'));
                   },
                   color: Colors.green,
                   child: Text(

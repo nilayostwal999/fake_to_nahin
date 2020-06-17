@@ -13,6 +13,24 @@ class _MyPostsScreenState extends State<MyPostsScreen> {
       drawer: DrawerButton(),
       appBar: AppBar(
         title:Text('Fake To Nahin',style: TextStyle(fontSize:25,fontWeight: FontWeight.bold)),
+        actions: [
+          // New Post Button
+          RaisedButton(
+            splashColor: Colors.green[300],
+            color: Colors.green,
+            onPressed: () {},
+            child: Row(children: [
+              Icon(
+                Icons.add_circle_outline,
+                color: Colors.white,
+              ),
+              Text(
+                'New Post',
+                style: TextStyle(color: Colors.white),
+              )
+            ]),
+          )
+        ],
       ),
       body: Container(
         padding: EdgeInsets.all(5),
@@ -54,6 +72,13 @@ class _MyPostsScreenState extends State<MyPostsScreen> {
                     )
                   )
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Username of Poster',style:TextStyle(fontSize: 20,fontWeight:FontWeight.bold)),
+                    Text('Date of Posting',style:TextStyle(fontSize: 20,color: Colors.grey))
+                  ],
+                ),
                 FractionallySizedBox(
                     widthFactor: 0.95,
                     child: Image.network(
@@ -65,11 +90,14 @@ class _MyPostsScreenState extends State<MyPostsScreen> {
                         fontSize: 23,
                         fontWeight: FontWeight.bold)),
                 RichText(
+                  overflow: TextOverflow.fade,
+                  maxLines: 3,
                   text: TextSpan(
-                    text:'Description provided by posting person may be very long but would get displayed here',
-                    style: TextStyle(fontSize: 20, color: Colors.black)
+                    text:'Description provided by posting person may be very long but would get displayed here uptil three lines and would fade after that',
+                    style: TextStyle(fontSize: 20, color: Colors.black,backgroundColor: Colors.grey)
                   )
                 ),
+                Text('Read More and View Resources',style:TextStyle(color: Colors.blue,decoration:TextDecoration.underline))
               ])
             )
         )
