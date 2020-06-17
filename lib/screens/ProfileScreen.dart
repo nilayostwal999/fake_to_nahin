@@ -33,36 +33,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Text('Name Variable Here',style:TextStyle(color: Colors.green,fontWeight:FontWeight.bold,fontSize:25),textAlign: TextAlign.center),
           Card(margin: EdgeInsets.fromLTRB(0,10,0,10),child:Row(
             children:[
+              Text('Username:',style:TextStyle(fontSize: 22)),
+              Text('Username variable in line37',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          )),
+          Card(margin: EdgeInsets.fromLTRB(0,10,0,10),child:Row(
+            children:[
               Text('City:',style:TextStyle(fontSize: 22)),
-              Text('City Variable Here',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
+              Text('City Variable in line44',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
           )),
           Card(margin: EdgeInsets.fromLTRB(0,10,0,10),child:Row(
             children:[
               Text('State:',style:TextStyle(fontSize: 22)),
-              Text('State Variable Here',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
+              Text('State Variable in line51',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
           )),
           Card(margin: EdgeInsets.fromLTRB(0,10,0,10),child:Row(
             children:[
               Text('Country:',style:TextStyle(fontSize: 22)),
-              Text('Country Variable Here',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
+              Text('Country Variable in line58',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
           )),
           Card(margin: EdgeInsets.fromLTRB(0,10,0,10),child:Row(
             children:[
               Text('Mobile:',style:TextStyle(fontSize: 22)),
-              Text('Mobile Variable Here',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
+              Text('Mobile Variable in line65',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
           )),
           Card(margin: EdgeInsets.fromLTRB(0,10,0,10),child:Row(
             children:[
               Text('E-mail ID:',style:TextStyle(fontSize: 22)),
-              Text('E-mail ID variable here',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
+              Text('E-mail ID variable in line72',style:TextStyle(fontSize: 22,fontWeight:FontWeight.bold)),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
           )),

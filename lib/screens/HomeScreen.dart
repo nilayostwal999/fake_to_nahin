@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           itemBuilder: _buildFruitItem,
           itemCount: 1,
         )
-      ),
+      )
     );
   }
 
