@@ -163,9 +163,9 @@ class BackButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      // decoration: BoxDecoration(
-      //     image: DecorationImage(
-      //         fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.cover, image: AssetImage('assets/img/app.png'))),
       child: Positioned(
           child: Stack(
         children: <Widget>[
