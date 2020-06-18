@@ -1,3 +1,4 @@
+import 'package:fake_to_nahin/models/CommentCardModel.dart';
 import 'package:flutter/material.dart';
 
 class PostScreen extends StatefulWidget {
@@ -10,7 +11,8 @@ class _PostScreenState extends State<PostScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title:Text('Fake To Nahin',style:TextStyle(fontSize:25,fontWeight:FontWeight.bold))),
-      body:Column(
+      body:ListView(
+        scrollDirection: Axis.vertical,
         children: [
           SizedBox(height:10),
           FractionallySizedBox(
@@ -45,31 +47,15 @@ class _PostScreenState extends State<PostScreen> {
                 child: Column(
                   children:[
                     Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,children: [
-                      Text('Links Posted:',style:TextStyle(fontSize: 24,fontWeight:FontWeight.bold)),
+                      Text('Links Posted:',style:TextStyle(fontSize: 23,fontWeight:FontWeight.bold)),
                       RaisedButton(onPressed: (){},child:Text('Post a Link',style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),))],
                     ),
-                    FractionallySizedBox(
-                      widthFactor:0.97,
-                      child: Row(
-                        children:[
-                          Row(
-                            children: [
-                              Column(children: [
-                                // Image(image: AssetImage('asset/img/app.png'))
-                              ],),
-                              Column(),
-                            ],
-                          ),
-                          Row(children: [Text('Link Provided By User')],)
-                        ]
-                      ),
-                    )
                   ]
                 ),
               )
             )
           )
-        ],crossAxisAlignment: CrossAxisAlignment.stretch
+        ],
       )
     );
   }

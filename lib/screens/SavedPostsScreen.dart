@@ -18,7 +18,7 @@ class _SavedPostsScreenState extends State<SavedPostsScreen> {
         padding: EdgeInsets.all(5),
         child: ListView.builder(
           itemBuilder: _buildFruitItem,
-          itemCount: 1,
+          itemCount: 5,
         )
       )
     );
