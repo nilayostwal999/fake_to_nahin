@@ -14,9 +14,9 @@ class _SignInScreenState extends State<SignInScreen> {
         children: <Widget>[
           Container(
             height: 300,
-            // decoration: BoxDecoration(
-            //     image: DecorationImage(
-            //         fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
+            decoration: BoxDecoration(
+                 image: DecorationImage(
+                     fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
           ),
           SizedBox(
             height: 20,
