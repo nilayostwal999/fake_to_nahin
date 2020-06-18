@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -16,9 +14,9 @@ class _SignInScreenState extends State<SignInScreen> {
         children: <Widget>[
           Container(
             height: 300,
-            // decoration: BoxDecoration(
-            //     image: DecorationImage(
-            //         fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
+            decoration: BoxDecoration(
+                 image: DecorationImage(
+                     fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
           ),
           SizedBox(
             height: 20,
@@ -62,9 +60,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 60,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, 'Home');
+                    Navigator.pushReplacementNamed(context,'Home');
                   },
-                  color: Color(0xFF00a79B),
+                  color: Colors.green,
                   child: Text(
                     'SIGN IN',
                     style: TextStyle(
@@ -81,7 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           InkWell(
             onTap: (){
-              Navigator.pushNamed(context, 'SignUp');
+              Navigator.pushNamed(context,'SignUp');
             },
                       child: Center(
               child: RichText(
@@ -92,7 +90,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       TextSpan(
                         text: 'SIGN UP',
                         style: TextStyle(
-                            color: Colors.teal, fontWeight: FontWeight.bold),
+                            color: Colors.green, fontWeight: FontWeight.bold),
                       )
                     ]),
               ),
