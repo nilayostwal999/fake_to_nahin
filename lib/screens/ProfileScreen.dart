@@ -16,7 +16,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         actions: [
           RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, 'ProfileEdit');
+            },
             child: Row(children: [Icon(Icons.edit), Text('Edit Profile')]),
             color: Colors.green,
             textColor: Colors.white,
