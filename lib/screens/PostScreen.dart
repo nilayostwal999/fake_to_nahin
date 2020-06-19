@@ -50,6 +50,25 @@ class _PostScreenState extends State<PostScreen> {
                       Text('Links Posted:',style:TextStyle(fontSize: 23,fontWeight:FontWeight.bold)),
                       RaisedButton(onPressed: (){},child:Text('Post a Link',style: TextStyle(fontSize:20,fontWeight:FontWeight.bold),))],
                     ),
+<<<<<<< HEAD
+=======
+                    FractionallySizedBox(
+                      widthFactor:0.97,
+                      child: Row(
+                        children:[
+                          Row(
+                            children: [
+                              Column(children: [
+                                Image(image: AssetImage('assets/img/app.png'))
+                              ],),
+                              Column(),
+                            ],
+                          ),
+                          Row(children: [Text('Link Provided By User')],)
+                        ]
+                      ),
+                    )
+>>>>>>> 43092d3c4b4bb0192f31f914885bf16b5a956e59
                   ]
                 ),
               )

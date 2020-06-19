@@ -24,7 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
             RaisedButton(
               splashColor: Colors.green[300],
               color: Colors.green,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "CreatePost");
+              },
               child: Row(children: [
                 Icon(
                   Icons.add_circle_outline,

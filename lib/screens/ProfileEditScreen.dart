@@ -66,7 +66,7 @@ class MapScreenState extends State<ProfileEditScreen>
                                   shape: BoxShape.circle,
                                   image: new DecorationImage(
                                     image: new ExactAssetImage(
-                                        'asset/img/as.png'),
+                                        'assets/img/as.png'),
                                     fit: BoxFit.cover,
                                   ),
                                 )),
