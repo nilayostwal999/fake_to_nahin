@@ -1,6 +1,6 @@
-import 'package:fake_to_nahin/widgets/Cards.dart';
 import 'package:flutter/material.dart';
-import '../controllers/drawer.dart' as drew;
+import '../controllers/drawer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,46 +11,70 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Drawer(
-          child: drew.DrawerButton(),
+      drawer: Drawer(
+        child: DrawerButton(),
+      ),
+      appBar: AppBar(
+        title: Text(
+          
+          'Fake To Nahin',
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
-        appBar: AppBar(
-          title: Text(
-            
-            'Fake To Nahin',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-          actions: [
-            // New Post Button
-            RaisedButton(
-              splashColor: Colors.white54,
-              color: Colors.lightBlue[800],
-              onPressed: () {
-                Navigator.pushNamed(context, "CreatePost");
-              },
-              child: Row(children: [
-                Icon(
-                  Icons.add_circle_outline,
-                  color: Colors.white,
-                ),
-                Text(
-                  'New Post',
-                  style: TextStyle(color: Colors.white,fontSize: 20),
-                )
-              ]),
-            )
-          ],
-        ),
-        body: Container(
-            padding: EdgeInsets.all(5),
-            child: ListView.builder(
-              itemBuilder: _buildPostCard,
-              itemCount: 10,
-            )));
+        actions: [
+          // New Post Button
+          RaisedButton(
+            splashColor: Colors.white54,
+            color: Colors.lightBlue[800],
+            onPressed: () {
+              Navigator.pushNamed(context, "CreatePost");
+            },
+            child: Row(children: [
+              Icon(
+                Icons.add_circle_outline,
+                color: Colors.white,
+              ),
+              Text(
+                'New Post',
+                style: TextStyle(color: Colors.white,fontSize: 20),
+              )
+            ]),
+          )
+        ],
+      ),
+      body: Container(
+        alignment:Alignment.topCenter,
+        padding: EdgeInsets.all(5),
+        child: StreamBuilder(
+          stream: Firestore.instance.collection('post').snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) return Text('Loading...');
+            return ListView.builder(
+              itemExtent: 10,
+              itemCount: snapshot.data.documents.length,
+              itemBuilder: (context,index) => _buildPostCard(context, snapshot.data.documents[index])
+            );
+          }
+        )
+      )
+    );
   }
 
-  Widget _buildPostCard(BuildContext context, int index) {
-    return Cards();
+  Widget _buildPostCard(BuildContext context, DocumentSnapshot document) {
+    return ListTile(
+      title: Column(
+          children: [
+            RichText(text: TextSpan(text: document['title'],style:TextStyle(color: Colors.lightBlue[800],fontSize:26))),
+            Row(
+              children:[
+                Text(document['username'],style:TextStyle(fontWeight: FontWeight.bold, fontSize:22)),
+                Text(document['dateCreated'],style:TextStyle(color:Colors.grey,fontSize: 20))
+              ]
+            ),
+            Image(image: NetworkImage(document['imagePath']),fit: BoxFit.fitWidth,),
+            RichText(text: TextSpan(text:document['description']),maxLines: 3,overflow: TextOverflow.fade,)
+          ],
+        )
+    );
   }
 }
 

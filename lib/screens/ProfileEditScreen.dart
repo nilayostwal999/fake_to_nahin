@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfileEditScreen extends StatefulWidget {
   @override
@@ -13,7 +14,6 @@ class MapScreenState extends State<ProfileEditScreen>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -22,7 +22,11 @@ class MapScreenState extends State<ProfileEditScreen>
     return new Scaffold(
         body: new Container(
       color: Colors.white,
-      child: new ListView(
+      child: new StreamBuilder(
+        stream: Firestore.instance.document('user').snapshots(),
+        builder: (context,snapshot) {
+        if (!snapshot.hasData) return Text('loading');
+        return ListView(
         children: <Widget>[
           Column(
             children: <Widget>[
@@ -32,12 +36,11 @@ class MapScreenState extends State<ProfileEditScreen>
                 child: new Column(
                   children: <Widget>[
                     Padding(
-                        padding: EdgeInsets.only(left: 5.0, top: 20.0),
+                        padding: EdgeInsets.only(top: 20.0),
                         child: new Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(
-                              width:35,
                             child: new FlatButton(
                               onPressed:(){
                                 Navigator.pushReplacementNamed(context,'Home');
@@ -45,13 +48,12 @@ class MapScreenState extends State<ProfileEditScreen>
                               child: Icon(Icons.home, size: 45, color: Colors.blue),
                             )),
                             Padding(
-                              padding: EdgeInsets.only(left: 135.0, top: 8.0),
+                              padding: EdgeInsets.only(left: 80,top: 8.0),
                               child: new Text('Profile',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20.0,
-                                      fontFamily: 'sans-serif-light',
-                                      color: Colors.black)),
+                                      fontSize: 24.0,
+                                      color: Colors.lightBlue[800])),
                             )
                           ],
                         )),
@@ -159,8 +161,8 @@ class MapScreenState extends State<ProfileEditScreen>
                             children: <Widget>[
                               new Flexible(
                                 child: new TextField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Enter First Name",
+                                  decoration: InputDecoration(
+                                    hintText: snapshot.data.document['first_name'],
                                   ),
                                   enabled: !_status,
                                   autofocus: !_status,
@@ -197,8 +199,8 @@ class MapScreenState extends State<ProfileEditScreen>
                             children: <Widget>[
                               new Flexible(
                                 child: new TextField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Enter Last Name",
+                                  decoration: InputDecoration(
+                                    hintText: snapshot.data.document['last_name'],
                                   ),
                                   enabled: !_status,
                                   autofocus: !_status,
@@ -235,8 +237,8 @@ class MapScreenState extends State<ProfileEditScreen>
                             children: <Widget>[
                               new Flexible(
                                 child: new TextField(
-                                  decoration: const InputDecoration(
-                                      hintText: "Enter Email ID"),
+                                  decoration: InputDecoration(
+                                      hintText: snapshot.data.document['email']),
                                   enabled: !_status,
                                 ),
                               ),
@@ -390,8 +392,8 @@ class MapScreenState extends State<ProfileEditScreen>
             ],
           ),
         ],
-      ),
-    ));
+      );
+    })));
   }
 
   @override
