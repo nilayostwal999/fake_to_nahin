@@ -16,7 +16,10 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
             RaisedButton(
               textTheme: ButtonTextTheme.primary,
               color: Theme.of(context).primaryColor,
-              onPressed: () {},
+              splashColor: Colors.white54,
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(context,'Home', ModalRoute.withName('/'));
+              },
               child: Row(
                 children: <Widget>[
                   Icon(Icons.publish),

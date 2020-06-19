@@ -1,4 +1,4 @@
-import 'package:fake_to_nahin/models/PostModel.dart';
+import 'package:fake_to_nahin/widgets/Cards.dart';
 import 'package:flutter/material.dart';
 import '../controllers/drawer.dart' as drew;
 
@@ -16,14 +16,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         appBar: AppBar(
           title: Text(
+            
             'Fake To Nahin',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           actions: [
             // New Post Button
             RaisedButton(
-              splashColor: Colors.green[300],
-              color: Colors.green,
+              splashColor: Colors.white54,
+              color: Colors.lightBlue[800],
               onPressed: () {
                 Navigator.pushNamed(context, "CreatePost");
               },
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Text(
                   'New Post',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white,fontSize: 20),
                 )
               ]),
             )
@@ -49,69 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPostCard(BuildContext context, int index) {
-    PostModel newModel = new PostModel(
-        "Bhoomika Ne Video Daala",
-        "@nilu",
-        "10.12.2020",
-        "Aaj Leading India ka video banake dala, bahut hi uttam pradarshan, matalb sahi me maja aa giya, video zaroor r ekhen , aapko bhi maza aayega",
-        "http://www.webjazba.com/wp-content/uploads/2014/08/webjazba-161.jpg");
-    return Card(
-        child: InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, 'Post');
-            },
-            child: DecoratedBox(
-                position: DecorationPosition.background,
-                decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(2),
-                    border: Border.all(
-                        color: Colors.grey,
-                        width: 2,
-                        style: BorderStyle.values[1])),
-                child: Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Column(children: [
-                      RichText(
-                          text: TextSpan(
-                              text: newModel.title,
-                              style: TextStyle(
-                                  fontSize: 26,
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.bold))),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(newModel.username,
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
-                          Text(newModel.dateCreated,
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.grey))
-                        ],
-                      ),
-                      FractionallySizedBox(
-                          widthFactor: 0.95,
-                          child: Image.network(
-                            newModel.imagePath,
-                          )),
-                      Text("Description\n",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold)),
-                      RichText(
-                          overflow: TextOverflow.fade,
-                          maxLines: 3,
-                          text: TextSpan(
-                              text: newModel.description,
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.black54))),
-                      Text('Read More and View Resources',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              decoration: TextDecoration.underline))
-                    ])))));
+    return Cards();
   }
 }
 

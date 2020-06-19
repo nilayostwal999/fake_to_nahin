@@ -40,7 +40,7 @@ class MapScreenState extends State<ProfileEditScreen>
                               width:35,
                             child: new FlatButton(
                               onPressed:(){
-                                Navigator.pushNamed(context, 'Home');
+                                Navigator.pushReplacementNamed(context,'Home');
                               },
                               child: Icon(Icons.home, size: 45, color: Colors.blue),
                             )),
