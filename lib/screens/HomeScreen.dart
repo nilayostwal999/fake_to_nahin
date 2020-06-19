@@ -22,11 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [
             // New Post Button
             RaisedButton(
-              splashColor: Colors.green[300],
-              color: Colors.green,
-              onPressed: () {
-                Navigator.pushNamed(context, "CreatePost");
-              },
+              splashColor: Colors.blue[300],
+              color: Colors.blue,
+              onPressed: () {},
               child: Row(children: [
                 Icon(
                   Icons.add_circle_outline,
@@ -77,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               text: newModel.title,
                               style: TextStyle(
                                   fontSize: 26,
-                                  color: Colors.green,
+                                  color: Colors.blue,
                                   fontWeight: FontWeight.bold))),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -45,6 +45,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         margin: EdgeInsets.only(right: 20, left: 10),
                         child: TextField(
                           decoration: InputDecoration(hintText: 'Password'),
+                          obscureText: true,
                         ))),
               ],
             ),
@@ -62,7 +63,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   onPressed: () {
                     Navigator.pushReplacementNamed(context,'Home');
                   },
-                  color: Colors.green,
+                  color: Colors.blue,
                   child: Text(
                     'SIGN IN',
                     style: TextStyle(
@@ -90,7 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       TextSpan(
                         text: 'SIGN UP',
                         style: TextStyle(
-                            color: Colors.green, fontWeight: FontWeight.bold),
+                            color: Colors.blue, fontWeight: FontWeight.bold),
                       )
                     ]),
               ),
