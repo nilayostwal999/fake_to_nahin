@@ -163,8 +163,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.4"
-<<<<<<< HEAD
-=======
   image:
     dependency: transitive
     description:
@@ -186,7 +184,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
->>>>>>> 43092d3c4b4bb0192f31f914885bf16b5a956e59
   js:
     dependency: transitive
     description:
@@ -297,8 +294,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.8"
-<<<<<<< HEAD
-=======
   video_player:
     dependency: "direct dev"
     description:
@@ -327,7 +322,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.6.1"
->>>>>>> 43092d3c4b4bb0192f31f914885bf16b5a956e59
 sdks:
   dart: ">=2.7.0 <3.0.0"
   flutter: ">=1.12.13+hotfix.5 <2.0.0"
