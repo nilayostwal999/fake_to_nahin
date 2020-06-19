@@ -1,19 +1,12 @@
-
 import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
 
 class UploadMedia2 extends StatefulWidget {
-  UploadMedia2({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _UploadMedia2State createState() => _UploadMedia2State();
 }
@@ -168,7 +161,7 @@ class _UploadMedia2State extends State<UploadMedia2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("New Post"),
       ),
       body: Center(
         child: !kIsWeb && defaultTargetPlatform == TargetPlatform.android
