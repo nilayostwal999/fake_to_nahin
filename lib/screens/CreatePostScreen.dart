@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CreatePostScreen extends StatefulWidget {
   @override
@@ -35,7 +36,9 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
           children:[
             Row(children: [
               Expanded(child: Text('Heading',style:TextStyle(color: Colors.lightBlue[800],fontSize:24)),flex: 2),
-              Expanded(child: TextField(keyboardType: TextInputType.multiline,))
+              Expanded(flex:4,child: TextField(keyboardType: TextInputType.multiline,maxLines: 3,style: TextStyle(fontSize:20),))
+            ]),
+            Row(children:[
             ])
           ]
         ),

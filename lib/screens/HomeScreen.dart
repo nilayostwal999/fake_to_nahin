@@ -49,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, snapshot) {
             if (!snapshot.hasData) return Text('Loading...');
             return ListView.builder(
-              itemExtent: 10,
               itemCount: snapshot.data.documents.length,
               itemBuilder: (context,index) => _buildPostCard(context, snapshot.data.documents[index])
             );
@@ -60,21 +59,63 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPostCard(BuildContext context, DocumentSnapshot document) {
-    return ListTile(
-      title: Column(
-          children: [
-            RichText(text: TextSpan(text: document['title'],style:TextStyle(color: Colors.lightBlue[800],fontSize:26))),
-            Row(
-              children:[
-                Text(document['username'],style:TextStyle(fontWeight: FontWeight.bold, fontSize:22)),
-                Text(document['dateCreated'],style:TextStyle(color:Colors.grey,fontSize: 20))
-              ]
-            ),
-            Image(image: NetworkImage(document['imagePath']),fit: BoxFit.fitWidth,),
-            RichText(text: TextSpan(text:document['description']),maxLines: 3,overflow: TextOverflow.fade,)
-          ],
-        )
-    );
+    return Card(
+        child: InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, 'Post');
+            },
+            child: DecoratedBox(
+                position: DecorationPosition.background,
+                decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(2),
+                    border: Border.all(
+                        color: Colors.grey,
+                        width: 2,
+                        style: BorderStyle.values[1])),
+                child: Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Column(children: [
+                      RichText(
+                          text: TextSpan(
+                              text: document['title'],
+                              style: TextStyle(
+                                  fontSize: 26,
+                                  color: Colors.lightBlue[800],
+                                  fontWeight: FontWeight.bold))),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text( document['username'],
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold)),
+                          Text(document['dateCreated'],
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.grey))
+                        ],
+                      ),
+                      FractionallySizedBox(
+                          widthFactor: 0.95,
+                          child: Image.network(
+                            document['imagePath'],
+                          )),
+                      Text("Description\n",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold)),
+                      RichText(
+                          overflow: TextOverflow.fade,
+                          maxLines: 3,
+                          text: TextSpan(
+                              text: document['description'],
+                              style: TextStyle(
+                                  fontSize: 18, color: Colors.black))),
+                      Text('Read More and View Resources',
+                          style: TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline))
+                    ])))));
   }
 }
 
