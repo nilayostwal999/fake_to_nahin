@@ -1,4 +1,3 @@
-import 'package:fake_to_nahin/models/CommentCardModel.dart';
 import 'package:flutter/material.dart';
 
 class PostScreen extends StatefulWidget {

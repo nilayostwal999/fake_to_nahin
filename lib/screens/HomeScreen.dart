@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       FractionallySizedBox(
                           widthFactor: 0.95,
                           child: Image.network(
-                            document['imagePath'],
+                            document['imagePath'],fit: BoxFit.fitWidth,
                           )),
                       Text("Description\n",
                           style: TextStyle(
