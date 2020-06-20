@@ -39,6 +39,7 @@ dev_dependencies:
   image_picker: ^0.6.7+2
   path: ^1.6.4
   video_player: ^0.10.11+1
+  url_launcher: ^4.2.0+3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
