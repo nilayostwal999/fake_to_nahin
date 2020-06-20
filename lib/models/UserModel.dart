@@ -16,18 +16,11 @@ class UserModel {
   // An optional parameter is passed in square brackets. (e.g. -> [this._description])
 
   // Constructor 1 -> when we create a new Todo and the database hasn't assigned an id yet.
-  UserModel(
-      this._email,
-      this._username,
-      this._firstName,
-      this._lastName,
-      this._country,
-      this._state,
-      this._city,
-      this._mobile,
-      this._password,
-      this._imagePath);
+  // UserModel(this._email, this._username, this._firstName, this._lastName,
+  //     this._country, this._state, this._city, this._mobile, this._password,
+  //     [this._imagePath]);
 
+  UserModel();
   // There can be only one un-named constructor in a class, sohere we have to use a named constructor.
 
   // Constructor 2 -> when we have an id for e.g. when we are editing the todo.
@@ -42,7 +35,7 @@ class UserModel {
       this._city,
       this._mobile,
       this._password,
-      this._imagePath);
+      [this._imagePath]);
 
   // Getters
   String get id => _id;

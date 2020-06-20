@@ -35,7 +35,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
               final userArray = snapshot.data.documents;
               List<UserModel> users = [];
               for (var user in userArray) {
-                var newUser = UserModel(
+                var newUser = UserModel.withId(
                     user["email"],
                     user["username"],
                     user["first_name"],

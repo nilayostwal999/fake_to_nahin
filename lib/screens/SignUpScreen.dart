@@ -1,4 +1,6 @@
+import 'package:fake_to_nahin/models/UserModel.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -6,146 +8,193 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: ListView(
+      appBar: AppBar(
+        title: Text('Sign Up'),
+      ),
+      body: Padding(padding: const EdgeInsets.all(16.0), child: MyCustomForm()),
+    );
+  }
+}
+
+// Create a Form widget.
+class MyCustomForm extends StatefulWidget {
+  @override
+  MyCustomFormState createState() {
+    return MyCustomFormState();
+  }
+}
+
+class MyCustomFormState extends State<MyCustomForm> {
+  // Create a global key that uniquely identifies the Form widget
+  // and allows validation of the form.
+  //
+  // Note: This is a GlobalKey<FormState>,
+  // not a GlobalKey<MyCustomFormState>.
+  final _formKey = GlobalKey<FormState>();
+  UserModel newUserModel = new UserModel();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController mobileController = TextEditingController();
+  TextEditingController countryController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController imagePathController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    // Build a Form widget using the _formKey created above.
+    return Form(
+      key: _formKey,
+      child: ListView(
         children: <Widget>[
-          BackButtonWidget(),
-          SizedBox(
-            height: 20,
+          TextFormField(
+            controller: firstNameController,
+            decoration: InputDecoration(labelText: 'First Name'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.firstName = value;
+            },
+          ),
+          TextFormField(
+            controller: lastNameController,
+            decoration: InputDecoration(labelText: 'Last Name'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.lastName = value;
+            },
+          ),
+          TextFormField(
+            controller: usernameController,
+            decoration: InputDecoration(labelText: 'Username'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.username = value;
+            },
+          ),
+          TextFormField(
+            controller: emailController,
+            decoration: InputDecoration(labelText: 'Email Id'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.email = value;
+            },
+          ),
+          TextFormField(
+            controller: mobileController,
+            decoration: InputDecoration(labelText: 'Mobile'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.mobile = value;
+            },
+          ),
+          TextFormField(
+            controller: countryController,
+            decoration: InputDecoration(labelText: 'Country'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.country = value;
+            },
+          ),
+          TextFormField(
+            controller: stateController,
+            decoration: InputDecoration(labelText: 'State'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.state = value;
+            },
+          ),
+          TextFormField(
+            controller: cityController,
+            decoration: InputDecoration(labelText: 'City'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.city = value;
+            },
+          ),
+          TextFormField(
+            controller: passwordController,
+            obscureText: true,
+            decoration: InputDecoration(labelText: 'Password'),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            onSaved: (value) {
+              newUserModel.password = value;
+            },
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              children: <Widget>[
-                IconButton(icon: Icon(Icons.person), onPressed: null),
-                Expanded(
-                    child: Container(
-                        margin: EdgeInsets.only(right: 20, left: 10),
-                        child: TextField(
-                          decoration: InputDecoration(hintText: 'First Name'),
-                        )))
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              children: <Widget>[
-                IconButton(icon: Icon(Icons.person), onPressed: null),
-                Expanded(
-                    child: Container(
-                        margin: EdgeInsets.only(right: 20, left: 10),
-                        child: TextField(
-                          decoration: InputDecoration(hintText: 'Last Name'),
-                        )))
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              children: <Widget>[
-                IconButton(icon: Icon(Icons.person), onPressed: null),
-                Expanded(
-                    child: Container(
-                        margin: EdgeInsets.only(right: 20, left: 10),
-                        child: TextField(
-                          decoration:
-                              InputDecoration(hintText: 'Mobile Number'),
-                        )))
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              children: <Widget>[
-                IconButton(icon: Icon(Icons.mail), onPressed: null),
-                Expanded(
-                    child: Container(
-                        margin: EdgeInsets.only(right: 20, left: 10),
-                        child: TextField(
-                          decoration: InputDecoration(hintText: 'Email'),
-                        )))
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              children: <Widget>[
-                IconButton(icon: Icon(Icons.lock), onPressed: null),
-                Expanded(
-                    child: Container(
-                        margin: EdgeInsets.only(right: 20, left: 10),
-                        child: TextField(
-                          decoration: InputDecoration(hintText: 'Password'),
-                        )))
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              children: <Widget>[
-                IconButton(icon: Icon(Icons.lock), onPressed: null),
-                Expanded(
-                    child: Container(
-                        margin: EdgeInsets.only(right: 20, left: 10),
-                        child: TextField(
-                          decoration:
-                              InputDecoration(hintText: 'Confirm Password'),
-                        )))
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: <Widget>[
-                Radio(value: null, groupValue: null, onChanged: null),
-                RichText(
-                    text: TextSpan(
-                        text: 'I have accepted the',
-                        style: TextStyle(color: Colors.black),
-                        children: [
-                      TextSpan(
-                          text: 'Terms & Condition',
-                          style: TextStyle(
-                              color: Colors.lightBlue[800], fontWeight: FontWeight.bold))
-                    ]))
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(5),
-              child: Container(
-                height: 60,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(context, 'SignIn',ModalRoute.withName('/'));
-                  },
-                  color: Colors.lightBlue[800],
-                  child: Text(
-                    'SIGN UP',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20),
-                  ),
-                ),
-              ),
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: RaisedButton(
+              onPressed: () {
+                // Store user in Database
+                _formKey.currentState.save();
+                var userMap = newUserModel.toMap();
+                final db = Firestore.instance;
+                db
+                    .collection("users")
+                    .document(newUserModel.email)
+                    .setData(userMap);
+                // return showDialog(
+                //   context: context,
+                //   builder: (context) {
+                //     return AlertDialog(
+                //       content: Text(newUserModel.email),
+                //     );
+                //   },
+                // );
+              },
+              child: Text('Submit'),
             ),
           ),
         ],
@@ -153,56 +202,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
-
-class BackButtonWidget extends StatelessWidget {
-  const BackButtonWidget({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-       decoration: BoxDecoration(
-           image: DecorationImage(
-               fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
-      child: Positioned(
-          child: Stack(
-        children: <Widget>[
-          Positioned(
-              top: 20,
-              child: Row(
-                children: <Widget>[
-                  IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      }),
-                  Text(
-                    'Back',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  )
-                ],
-              )),
-          Positioned(
-            bottom: 20,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Create New Account',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18),
-              ),
-            ),
-          )
-        ],
-      )),
-    );
-  }
-}
+// ListView(
+//             children: <Widget>[
+//               TextFormField(
+//                 controller: myController,
+//                 decoration: InputDecoration(
+//                     border: hintText: 'Enter a search term'),
+//               ),
+//             ],
+//           )

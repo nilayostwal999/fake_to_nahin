@@ -7,6 +7,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   @override
+  final emailLoginController = TextEditingController();
+  final passwordLoginController = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -15,8 +17,9 @@ class _SignInScreenState extends State<SignInScreen> {
           Container(
             height: 300,
             decoration: BoxDecoration(
-                 image: DecorationImage(
-                     fit: BoxFit.cover, image: AssetImage('assets/img/app.png'))),
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/img/app.png'))),
           ),
           SizedBox(
             height: 20,
@@ -30,6 +33,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Container(
                         margin: EdgeInsets.only(right: 20, left: 10),
                         child: TextField(
+                          controller: emailLoginController,
                           decoration: InputDecoration(hintText: 'Username'),
                         )))
               ],
@@ -44,6 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Container(
                         margin: EdgeInsets.only(right: 20, left: 10),
                         child: TextField(
+                          controller: passwordLoginController,
                           decoration: InputDecoration(hintText: 'Password'),
                           obscureText: true,
                         ))),
@@ -61,7 +66,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 60,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context,'Home');
+                    Navigator.pushReplacementNamed(context, 'Home');
                   },
                   color: Colors.lightBlue[800],
                   child: Text(
@@ -79,10 +84,10 @@ class _SignInScreenState extends State<SignInScreen> {
             height: 20,
           ),
           InkWell(
-            onTap: (){
-              Navigator.pushNamed(context,'SignUp');
+            onTap: () {
+              Navigator.pushNamed(context, 'SignUp');
             },
-                      child: Center(
+            child: Center(
               child: RichText(
                 text: TextSpan(
                     text: 'Don\'t have an account?',
@@ -91,7 +96,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       TextSpan(
                         text: 'SIGN UP',
                         style: TextStyle(
-                            color: Colors.lightBlue[800], fontWeight: FontWeight.bold),
+                            color: Colors.lightBlue[800],
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22.0),
                       )
                     ]),
               ),
