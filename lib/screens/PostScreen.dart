@@ -150,6 +150,8 @@ class _PostScreenState extends State<PostScreen> {
                     builder: (context,snapshot){
                       if (!snapshot.hasData) return Text('No comments yet!!');
                       return ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap:true,
                         itemCount: snapshot.data.documents.length,
                         itemBuilder: (context,index) => _buildCommentCards(context,snapshot.data.documents[index])
                       );

@@ -23,9 +23,10 @@ class MapScreenState extends State<ProfileEditScreen>
         body: new Container(
       color: Colors.white,
       child: new StreamBuilder(
-        stream: Firestore.instance.document('user').snapshots(),
+        stream: Firestore.instance.collection('user').document('xvSFKHk1gy0JS4Cx6mpE').snapshots(),
         builder: (context,snapshot) {
         if (!snapshot.hasData) return Text('loading');
+        DocumentSnapshot document= snapshot.data.document;
         return ListView(
         children: <Widget>[
           Column(
@@ -71,7 +72,7 @@ class MapScreenState extends State<ProfileEditScreen>
                                   shape: BoxShape.circle,
                                   image: new DecorationImage(
                                     image: new ExactAssetImage(
-                                        'assets/img/as.png'),
+                                        document['imagePath']),
                                     fit: BoxFit.cover,
                                   ),
                                 )),
@@ -162,7 +163,7 @@ class MapScreenState extends State<ProfileEditScreen>
                               new Flexible(
                                 child: new TextField(
                                   decoration: InputDecoration(
-                                    hintText: snapshot.data.document['first_name'],
+                                    hintText: document['first_name'],
                                   ),
                                   enabled: !_status,
                                   autofocus: !_status,
@@ -200,7 +201,7 @@ class MapScreenState extends State<ProfileEditScreen>
                               new Flexible(
                                 child: new TextField(
                                   decoration: InputDecoration(
-                                    hintText: snapshot.data.document['last_name'],
+                                    hintText: document['last_name'],
                                   ),
                                   enabled: !_status,
                                   autofocus: !_status,
@@ -238,7 +239,7 @@ class MapScreenState extends State<ProfileEditScreen>
                               new Flexible(
                                 child: new TextField(
                                   decoration: InputDecoration(
-                                      hintText: snapshot.data.document['email']),
+                                      hintText: document['email']),
                                   enabled: !_status,
                                 ),
                               ),
@@ -272,8 +273,8 @@ class MapScreenState extends State<ProfileEditScreen>
                             children: <Widget>[
                               new Flexible(
                                 child: new TextField(
-                                  decoration: const InputDecoration(
-                                      hintText: "Enter Mobile Number"),
+                                  decoration: InputDecoration(
+                                      hintText: document['mobile']),
                                   enabled: !_status,
                                 ),
                               ),
@@ -307,8 +308,8 @@ class MapScreenState extends State<ProfileEditScreen>
                             children: <Widget>[
                               new Flexible(
                                 child: new TextField(
-                                  decoration: const InputDecoration(
-                                      hintText: "Enter Your Country"),
+                                  decoration: InputDecoration(
+                                      hintText: document['country']),
                                   enabled: !_status,
                                 ),
                               ),
@@ -342,8 +343,8 @@ class MapScreenState extends State<ProfileEditScreen>
                             children: <Widget>[
                               new Flexible(
                                 child: new TextField(
-                                  decoration: const InputDecoration(
-                                      hintText: "Enter Your State"),
+                                  decoration: InputDecoration(
+                                      hintText: document['state']),
                                   enabled: !_status,
                                 ),
                               ),
@@ -377,8 +378,8 @@ class MapScreenState extends State<ProfileEditScreen>
                             children: <Widget>[
                               new Flexible(
                                 child: new TextField(
-                                  decoration: const InputDecoration(
-                                      hintText: "Enter Your City"),
+                                  decoration: InputDecoration(
+                                      hintText: document['city']),
                                   enabled: !_status,
                                 ),
                               ),
