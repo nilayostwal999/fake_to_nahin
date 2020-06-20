@@ -63,7 +63,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   onPressed: () {
                     Navigator.pushReplacementNamed(context,'Home');
                   },
-                  color: Colors.blue,
+                  color: Colors.lightBlue[800],
                   child: Text(
                     'SIGN IN',
                     style: TextStyle(
@@ -91,7 +91,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       TextSpan(
                         text: 'SIGN UP',
                         style: TextStyle(
-                            color: Colors.blue, fontWeight: FontWeight.bold),
+                            color: Colors.lightBlue[800], fontWeight: FontWeight.bold),
                       )
                     ]),
               ),

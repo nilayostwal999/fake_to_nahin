@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../controllers/drawer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MyPostsScreen extends StatefulWidget {
   @override
@@ -16,58 +17,67 @@ class _MyPostsScreenState extends State<MyPostsScreen> {
         actions: [
           // New Post Button
           RaisedButton(
-            splashColor: Colors.green[300],
-            color: Colors.green,
-            onPressed: () {},
-            child: Row(children: [
-              Icon(
-                Icons.add_circle_outline,
-                color: Colors.white,
-              ),
-              Text(
-                'New Post',
-                style: TextStyle(color: Colors.white),
-              )
-            ]),
-          )
+              splashColor: Colors.white54,
+              color: Colors.lightBlue[800],
+              onPressed: () {
+                Navigator.pushNamed(context, "CreatePost");
+              },
+              child: Row(children: [
+                Icon(
+                  Icons.add_circle_outline,
+                  color: Colors.white,
+                ),
+                Text(
+                  'New Post',
+                  style: TextStyle(color: Colors.white,fontSize: 20),
+                )
+              ]),
+            )
         ],
       ),
-      body: Container(
+      body:Container(
+        alignment:Alignment.topCenter,
         padding: EdgeInsets.all(5),
-        child: ListView.builder(
-          itemBuilder: _buildFruitItem,
-          itemCount: 1,
+        child: StreamBuilder(
+          stream: Firestore.instance.collection('post').snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) return Text('Loading...');
+            return ListView.builder(
+              itemCount: snapshot.data.documents.length,
+              itemBuilder: (context,index) => _buildPostCard(context, snapshot.data.documents[index])
+            );
+          }
         )
       )
     );
   }
 
-  Widget _buildFruitItem(BuildContext context, int index) {
+  Widget _buildPostCard(BuildContext context, DocumentSnapshot document) {
     return Card(
-      child:InkWell(
-        onTap: (){
-          Navigator.pushNamed(context,'Post');
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, 'Post');
         },
         child: DecoratedBox(
-            position: DecorationPosition.background,
-            decoration: BoxDecoration(
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(2),
-              border: Border.all(
-                color: Colors.grey,
-                width: 2,
-                style: BorderStyle.values[1]
-              )
-            ),
-            child: Padding(
+          position: DecorationPosition.background,
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(2),
+            border: Border.all(
+              color: Colors.grey,
+              width: 2,
+              style: BorderStyle.values[1]
+            )
+          ),
+          child: Padding(
               padding: EdgeInsets.all(10),
               child: Column(children: [
                 RichText(
                   text: TextSpan(
-                    text:'Heading can be too large to fit in a single line. Hence new line should get introduced.',
+                    text: document['title'],
                     style: TextStyle(
                       fontSize: 26,
-                      color: Colors.green,
+                      color: Colors.lightBlue[800],
                       fontWeight: FontWeight.bold
                     )
                   )
@@ -75,31 +85,50 @@ class _MyPostsScreenState extends State<MyPostsScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Username of Poster',style:TextStyle(fontSize: 20,fontWeight:FontWeight.bold)),
-                    Text('Date of Posting',style:TextStyle(fontSize: 20,color: Colors.grey))
+                    Text( document['username'],
+                      style: TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.bold
+                      )
+                    ),
+                    Text(document['dateCreated'],
+                      style:
+                        TextStyle(fontSize: 20, color: Colors.grey
+                      )
+                    )
                   ],
                 ),
                 FractionallySizedBox(
-                    widthFactor: 0.95,
-                    child: Image.network(
-                      'https://www.indoindians.com/wp-content/uploads/2015/12/learning-768x516.jpg',
-                    )),
+                  widthFactor: 0.95,
+                  child: Image.network(
+                    document['imagePath'],fit: BoxFit.fitWidth,
+                  )
+                ),
                 Text("Description\n",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold)),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold
+                  )
+                ),
                 RichText(
                   overflow: TextOverflow.fade,
                   maxLines: 3,
                   text: TextSpan(
-                    text:'Description provided by posting person may be very long but would get displayed here uptil three lines and would fade after that',
-                    style: TextStyle(fontSize: 20, color: Colors.black,backgroundColor: Colors.grey)
+                    text: document['description'],
+                    style: TextStyle(
+                      fontSize: 18, color: Colors.black
+                    )
                   )
                 ),
-                Text('Read More and View Resources',style:TextStyle(color: Colors.blue,decoration:TextDecoration.underline))
-              ])
+                Text('Read More and View Resources',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline
+                  )
+                )
+              ]
             )
+          )
         )
       )
     );

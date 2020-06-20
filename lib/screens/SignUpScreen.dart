@@ -118,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       TextSpan(
                           text: 'Terms & Condition',
                           style: TextStyle(
-                              color: Colors.green, fontWeight: FontWeight.bold))
+                              color: Colors.lightBlue[800], fontWeight: FontWeight.bold))
                     ]))
               ],
             ),
@@ -136,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     Navigator.pushNamedAndRemoveUntil(context, 'SignIn',ModalRoute.withName('/'));
                   },
-                  color: Colors.blue,
+                  color: Colors.lightBlue[800],
                   child: Text(
                     'SIGN UP',
                     style: TextStyle(

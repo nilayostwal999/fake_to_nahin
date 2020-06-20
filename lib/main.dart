@@ -1,9 +1,6 @@
 import 'package:fake_to_nahin/screens/MyPostsScreen.dart';
 import 'package:fake_to_nahin/screens/SavedPostsScreen.dart';
-import 'package:fake_to_nahin/widgets/UploadMedia.dart';
-import 'package:fake_to_nahin/widgets/UploadMedia2.dart';
 import 'package:flutter/material.dart';
-
 import 'screens/CreatePostScreen.dart';
 import 'screens/HomeScreen.dart';
 import 'screens/SignInScreen.dart';
@@ -43,8 +40,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: 'SignIn',
       routes: {
-        // 'SignIn': (context) => SignInScreen(),
-        'SignIn': (context) => UploadMedia2(),
+        'SignIn': (context) => SignInScreen(),
         'SignUp': (context) => SignUpScreen(),
         'Home': (context) => HomeScreen(),
         'CreatePost': (context) => CreatePostScreen(),

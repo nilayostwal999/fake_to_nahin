@@ -45,7 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     fontSize: 25),
                 textAlign: TextAlign.center),
             Card(
-                margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                margin: EdgeInsets.fromLTRB(0, 25, 0, 10),
                 child: Row(
                   children: [
                     Text('Username:', style: TextStyle(fontSize: 22)),
